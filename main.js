@@ -1,9 +1,17 @@
-// Unit Testing: Setting Up Data with beforeEach Challenge
+// Unit Testing: Skipping and Focusing Challenge
 
 /**
- * 1. Add a new describe for the fullName
- * 2. Fully test the fullName get
- * 3. Use a nested beforeEach
+ * 1. Listen and hear the importance of what I am about to say.
+ * 2. Raise your right hand and say,
+ *    'I will be a quality developer that protects the code and my sanity.'
+ * 3. Type out below:
+ *    'I understand the value testing brings and will help to educate those about it.'
+ */
+
+/**
+ * Challenge Prompt Here
+ * ----------------------
+ * I understand the value testing brings and will help to educate those about it.
  */
 
 // Test Suite
