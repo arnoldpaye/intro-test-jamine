@@ -8,36 +8,28 @@
 
 // Test Suite
 describe(`${Person.name} Class`, () => {
+  let model;
+
+  beforeEach(() => {
+    model = new Person();
+    console.log('Before Each');
+  });
+
   describe('default values', () => {
     it('first name defaults to empty string', () => {
-      // arrange
-      const data = { firstName: null }
-  
-      // action
-      const model = new Person(data);
-  
+      console.log(1);
       // assert
       expect(model.firstName).toBe('');
     });
   
     it('last name defaults to empty string', () => {
-      // arrange
-      const data = { lastName: null }
-  
-      // action
-      const model = new Person(data);
-  
+      console.log(2);
       // assert
       expect(model.lastName).toBe('');
     });
   
     it('middle name defaults to empty string', () => {
-      // arrange
-      const data = { middleName: null }
-  
-      // action
-      const model = new Person(data);
-  
+      console.log(3);
       // assert
       expect(model.middleName).toBe('');
     });
