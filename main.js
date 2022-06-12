@@ -1,4 +1,11 @@
-// Unit Testing: Spies
+// Unit Testing: Spies Challenge
+
+/**
+ * 1. Use a spy and get method getCodeName() fully
+ * 2. You will need to use spyOn and toHaveBeenCalledWith()
+ * 3. HINT: you will need to claim the spy
+ * example: spyOn(object, 'key').and.returnValue(value)
+ */
 
 // Test Suite
 describe(`${Person.name} Class`, () => {
@@ -75,6 +82,30 @@ describe(`${Person.name} Class`, () => {
       // assert
       expect(window.alert).toHaveBeenCalled();
       expect(window.alert).toHaveBeenCalledWith(model.fullName);
+    });
+  });
+
+  describe('get code name', () => {
+    it('when confirmed is a coding / testing god', () => {
+      // arrange
+      spyOn(window, 'confirm').and.returnValue(true);
+
+      // act
+      const result = model.getCodeName();
+
+      // assert
+      expect(result).toBe('TESTING GOD!');
+    });
+
+    it('when not confirmed is just another scrub', () => {
+      // arrange
+      spyOn(window, 'confirm').and.returnValue(false);
+
+      // act
+      const result = model.getCodeName();
+
+      // assert
+      expect(result).toBe(`Scrub skipping tests in his best friend's ride!`);
     });
   });
 });
