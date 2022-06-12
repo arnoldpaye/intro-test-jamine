@@ -1,4 +1,9 @@
-// Unit Testing: Additional Matchers
+// Unit Testing: Additional Matchers Challenge
+
+/**
+ * 1. Look through the docs and write a test for a matcher we haven't discussed yet
+ * https://jasmine.github.io/api/edge/matchers
+ */
 
 // Test Suite
 describe(`${Person.name} Class`, () => {
@@ -149,6 +154,19 @@ describe(`${Person.name} Class`, () => {
 
       // assert
       expect(model.fullNamePieces).toEqual([firstName, middleName, lastName]);
+    });
+  });
+  describe('additional matchers testing area', () => {
+    it('fullName has my first name', () => {
+      // arrange
+      const firstName = 'Dylan';
+      const lastName = 'Israel';
+
+      // act
+      model = new Person({ firstName, lastName });
+
+      // assert
+      expect(model.fullName).toMatch(/Dylan/);
     });
   });
 });
