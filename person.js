@@ -2,6 +2,7 @@ class Person {
   firstName;
   lastName;
   middleName;
+  fullNamePieces;
 
   constructor(data = {}, personService) {
     this.firstName = data.firstName || '';

@@ -1,7 +1,12 @@
-// Unit Testing: Mocks
+// Unit Testing: Additional Matchers
 
 // Test Suite
 describe(`${Person.name} Class`, () => {
+  it('exists', () => {
+    // assert
+    expect(Person).toBeDefined();
+  });
+
   let model;
   let mockPersonService;
 
@@ -12,7 +17,7 @@ describe(`${Person.name} Class`, () => {
       user: {},
       getUserById(id) {
         this.lastId = id;
-        
+
         return this.user;
       }
     };
@@ -130,5 +135,20 @@ describe(`${Person.name} Class`, () => {
       // assert
       expect(mockPersonService.lastId).toBe(1);
     });
-  })
+  });
+
+  describe('additional matchers examples', () => {
+    it('gets full name pieces', () => {
+      // arrange
+      const firstName = 'Dylan';
+      const middleName = 'Christopher';
+      const lastName = 'Israel';
+
+      // act
+      model = new Person({firstName, middleName, lastName});
+
+      // assert
+      expect(model.fullNamePieces).toEqual([firstName, middleName, lastName]);
+    });
+  });
 });
