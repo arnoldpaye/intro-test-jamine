@@ -1,18 +1,4 @@
-// Unit Testing: Skipping and Focusing Challenge
-
-/**
- * 1. Listen and hear the importance of what I am about to say.
- * 2. Raise your right hand and say,
- *    'I will be a quality developer that protects the code and my sanity.'
- * 3. Type out below:
- *    'I understand the value testing brings and will help to educate those about it.'
- */
-
-/**
- * Challenge Prompt Here
- * ----------------------
- * I understand the value testing brings and will help to educate those about it.
- */
+// Unit Testing: Spies
 
 // Test Suite
 describe(`${Person.name} Class`, () => {
@@ -73,6 +59,22 @@ describe(`${Person.name} Class`, () => {
 
       // assert
       expect(result).toBe(`${fn} ${ln}`);
+    });
+  });
+
+  describe('say my name', () => {
+    it('alerts the full name of user', () => {
+      // arrange
+      model.firstName = 'Dylan';
+      model.lastName = 'Israel';
+      spyOn(window, 'alert');
+
+      // act
+      model.sayMyName();
+
+      // assert
+      expect(window.alert).toHaveBeenCalled();
+      expect(window.alert).toHaveBeenCalledWith(model.fullName);
     });
   });
 });
