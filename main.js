@@ -1,18 +1,22 @@
-// Unit Testing: Spies Challenge
-
-/**
- * 1. Use a spy and get method getCodeName() fully
- * 2. You will need to use spyOn and toHaveBeenCalledWith()
- * 3. HINT: you will need to claim the spy
- * example: spyOn(object, 'key').and.returnValue(value)
- */
+// Unit Testing: Mocks
 
 // Test Suite
 describe(`${Person.name} Class`, () => {
   let model;
+  let mockPersonService;
 
   beforeEach(() => {
-    model = new Person();
+    const data = { id: 1 };
+    mockPersonService = {
+      lastId: null,
+      user: {},
+      getUserById(id) {
+        this.lastId = id;
+        
+        return this.user;
+      }
+    };
+    model = new Person(data, mockPersonService);
   });
 
   describe('default values', () => {
@@ -108,4 +112,23 @@ describe(`${Person.name} Class`, () => {
       expect(result).toBe(`Scrub skipping tests in his best friend's ride!`);
     });
   });
+
+  describe('getMyFullUserData', () => {
+    it('gets user data by id', async () => {
+      // arrange
+      mockPersonService.lastId = null;
+      mockPersonService.user = {
+        firstname: 'Dylan',
+        middleName: 'Christopher',
+        lastName: 'Israel',
+        id: 1
+      };
+
+      // act
+      const result = await model.getMyFullUserData();
+
+      // assert
+      expect(mockPersonService.lastId).toBe(1);
+    });
+  })
 });
