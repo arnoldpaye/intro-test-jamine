@@ -1,8 +1,7 @@
-// Unit Testing: Additional Matchers Challenge
+// Unit Testing: Final Challenge
 
 /**
- * 1. Look through the docs and write a test for a matcher we haven't discussed yet
- * https://jasmine.github.io/api/edge/matchers
+ * 1. Add to testing to one of your existing projects
  */
 
 // Test Suite
